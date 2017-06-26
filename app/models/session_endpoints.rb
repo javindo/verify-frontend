@@ -17,7 +17,7 @@ module SessionEndpoints
   PARAM_ORIGINATING_IP = 'originatingIp'.freeze
   PARAM_ENTITY_ID = 'entityId'.freeze
   PARAM_REGISTRATION = 'registration'.freeze
-  PARAM_CYCLE_THREE_VALUE = 'value'.freeze
+  PARAM_CYCLE_THREE_VAUE = 'value'.freeze
   COUNTRIES_PATH = '/countries'.freeze
   SESSION_ID = 'sessionId'.freeze
   COUNTRIES_PATH_PREFIX = Pathname(COUNTRIES_PATH)

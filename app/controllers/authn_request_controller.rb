@@ -36,4 +36,12 @@ private
     requested_loa = levels_of_assurance.first
     session[:requested_loa] = requested_loa
   end
+
+  def set_secure_cookie(name, value)
+    cookies[name] = {
+        value: value,
+        httponly: true,
+        secure: Rails.configuration.x.cookies.secure
+    }
+  end
 end

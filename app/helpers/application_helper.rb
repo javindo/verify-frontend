@@ -25,7 +25,7 @@ module ApplicationHelper
 
   def piwik_noscript_query_string
     hash = {
-        idsite: public_piwik.site_id,
+        idsite: PUBLIC_PIWIK.site_id,
         rec: 1,
         rand: Random.rand(2**32 - 1),
         action_name: "#{content_for(:page_title_in_english)} - GOV.UK Verify - GOV.UK",

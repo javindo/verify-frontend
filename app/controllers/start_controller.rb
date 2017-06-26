@@ -1,5 +1,10 @@
+require 'user_session'
+require 'user_errors'
+
 class StartController < ConfigurableJourneyController
   layout 'slides'
+  include UserSession
+  include UserErrors
 
   def index
     @form = StartForm.new({})

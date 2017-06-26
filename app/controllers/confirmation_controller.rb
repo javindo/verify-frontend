@@ -1,5 +1,11 @@
+require 'user_session'
+require 'user_errors'
+
 class ConfirmationController < ApplicationController
-  before_action :hide_feedback_link
+  include UserSession
+  include UserErrors
+
+  before_action { @hide_feedback_link = true }
   layout 'slides'
 
   def index

@@ -27,7 +27,7 @@ describe SessionValidator do
   }
 
   let(:session_expiry) { 2 }
-  let(:session_validator) {
+  let(SESSION_VALIDATOR) {
     SessionValidator.new(session_expiry)
   }
 

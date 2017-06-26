@@ -1,5 +1,11 @@
+require 'user_session'
+require 'user_errors'
+
 class ResponseProcessingController < ApplicationController
-  before_action :hide_available_languages
+  include UserSession
+  include UserErrors
+
+  before_action { @hide_available_languages = true }
 
   def index
     @rp_name = current_transaction.rp_name
