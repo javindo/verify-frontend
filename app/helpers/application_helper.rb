@@ -1,7 +1,9 @@
 module ApplicationHelper
   def page_title(title_key, locale_data = {})
+    en_title = [t(title_key, locale_data.merge(locale: :en)), 'GOV.UK Verify', 'GOV.UK']
+    en_title << session['requested_loa'] if session['requested_loa']
     content_for :page_title, t(title_key, locale_data)
-    content_for :page_title_in_english, t(title_key, locale_data.merge(locale: :en))
+    content_for :page_title_in_english, en_title.join(' - ')
     content_for :head do
       tag('meta', name: 'verify|title', content: content_for(:page_title_in_english))
     end
@@ -28,7 +30,7 @@ module ApplicationHelper
         idsite: PUBLIC_PIWIK.site_id,
         rec: 1,
         rand: Random.rand(2**32 - 1),
-        action_name: "#{content_for(:page_title_in_english)} - GOV.UK Verify - GOV.UK",
+        action_name: content_for(:page_title_in_english),
     }
     hash[:url] = piwik_custom_url if piwik_custom_url?
     hash.to_query
