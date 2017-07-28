@@ -8,21 +8,12 @@
             interstitialQuestion.$form = $('#interstitial-question-form');
             interstitialQuestion.interstitialQuestionDetails = $('#interstitial_question_details');
             interstitialQuestion.setInterstitialQuestionDetailsVisibility();
-            interstitialQuestion.$form.find('input[name="interstitial_question_form[extra_info]"]').on('click', interstitialQuestion.setInterstitialQuestionDetailsVisibility);
+            interstitialQuestion.$form.find('input[name="interstitial_question_form[interstitial_question_result]"]').on('click', interstitialQuestion.setInterstitialQuestionDetailsVisibility);
         },
 
         setInterstitialQuestionDetailsVisibility: function () {
-            if (interstitialQuestion.hasAnsweredNo()) {
-                interstitialQuestion.interstitialQuestionDetails.removeClass('hidden');
-                interstitialQuestion.interstitialQuestionDetails.addClass('form-group-error');
-            } else {
-                interstitialQuestion.interstitialQuestionDetails.addClass('hidden');
-                interstitialQuestion.interstitialQuestionDetails.removeClass('form-group-error');
-            }
-        },
-        hasAnsweredNo: function () {
-            var input = $('input[name="interstitial_question_form[extra_info]"]:checked');
-            return input.length === 1 && input.val() === 'false';
+            interstitialQuestion.interstitialQuestionDetails.addClass('hidden');
+            interstitialQuestion.interstitialQuestionDetails.removeClass('form-group-error');
         }
     };
 

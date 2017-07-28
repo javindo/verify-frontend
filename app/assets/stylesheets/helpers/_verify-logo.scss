@@ -1,0 +1,22 @@
+@include media(tablet) {
+  main {
+    position: relative;
+  }
+
+  .verify-logo-right {
+    position: absolute;
+    right: -20px;
+    top: 80px;
+    width: 33.33333%;
+  }
+}
+
+.slides,
+.no-right-hand-logo {
+  ~ .verify-logo-right,
+  // use the "+" selector to support IE6
+  + .feedback-link + .verify-logo-right,
+  + .verify-logo-right {
+    display: none;
+  }
+}

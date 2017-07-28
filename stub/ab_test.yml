@@ -31,9 +31,9 @@ experiments:
           percent: 0
         - name: 'no_logo_privacy'
           percent: 0
-  - app_transparency:
-        alternatives:
-          - name: 'control'
-            percent: 80
-          - name: 'variant'
-            percent: 20
+  - proof_of_address:
+      alternatives:
+        - name: 'control'
+          percent: 50
+        - name: 'variant'
+          percent: 50

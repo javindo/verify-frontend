@@ -7,6 +7,7 @@ en:
     about_identity_accounts: about-identity-accounts
     about_choosing_a_company: about-choosing-a-company
     select_documents: select-documents
+    select_documents_none: select-documents-none
     other_identity_documents: other-identity-documents
     select_phone: select-phone
     will_it_work_for_me: will-it-work-for-me
@@ -23,6 +24,7 @@ en:
     unlikely_to_verify: unlikely-to-verify
     redirect_to_idp_warning: redirect-to-idp-warning
     redirect_to_idp_question: redirect-to-idp-question
+    idp_wont_work_for_you_one_doc: idp-wont-work-for-you-one-doc
     privacy_notice: privacy-notice
     cookies: cookies
     confirm_your_identity: confirm-your-identity
@@ -43,6 +45,9 @@ en:
     further_information: further-information
     further_information_cancel: further-information/cancel
     further_information_null_attribute: futher-information/null-attribute
+    select_proof_of_address: select-proof-of-address
+    select_proof_of_address_none: select-proof-of-address-none
+    no_idps_available: no-idps-available
   navigation:
     next: Next
     start_now: Start now
@@ -128,7 +133,7 @@ en:
         <p>GOV.UK Verify is new, and government services are joining all the time.</p>
         <p>You can use your identity account to access:</p>
       details: "GOV.UK Verify is new, and government services are joining all the time. The current services using Verify are:"
-      details_loa1_uplift_list: "The first time you access one of these government services, you'll be asked to add more security to your identity account:"
+      details_loa1_uplift_list: "When you access these government services, you'll be asked to provide more evidence as these services need to be confident someone isn't pretending to be you:"
     about_choosing_a_company:
       title: About choosing a company
       heading: Finding the right company to verify you
@@ -204,6 +209,11 @@ en:
           no_address: I don’t have a UK address
         errors:
           no_selection: Please answer all the questions
+    idp_wont_work_for_you_one_doc:
+      title: Identity Provider will not work for you
+      heading: "%{idp_name} cannot verify your identity"
+      choose_another_company: You have to choose a different certified company to verify your identity.
+      choose_another_certified_company_link: Choose another company
     no_mobile_phone:
       heading: GOV.UK Verify won’t work for you
       content_html: |
@@ -250,7 +260,7 @@ en:
       heading: Choose a company
       heading_loa1: Choose a certified company to verify your identity
       existing_customer: You don't have to be an existing customer with a company.
-      personal_information: They ask you to provide personal information and then check it's correct using the new, secure systems they built.
+      personal_information: They ask you to provide personal information and evidence, and then check it's correct using the new, secure systems they built.
       why_companies: Why there’s a choice of companies
       choose_idp: "Choose %{display_name}"
       idp_count_html: "Based on your answers, %{company_count} can verify you now:"
@@ -290,11 +300,12 @@ en:
     redirect_to_idp_warning:
       title: "You'll now be redirected"
       continue_to_idp: Continue to %{display_name}
-      recommended_html: |
-        <p>You’ll now verify your identity on %{display_name}’s website.</p>
-        <p>They’ll give you an identity account you can use wherever you see the GOV.UK Verify logo.</p>
-      non_recommended:
-        requirements: "To be verified with %{display_name}, you’ll need:"
+      create_account: Create your %{display_name} identity account
+      continue_website: Continue to the %{display_name} website
+      identity_account_use_html: |
+        <p>You’ll now verify your identity on the %{display_name} website.</p>
+        <p>They'll give you an identity account you can use wherever you see the GOV.UK Verify logo.</p>
+      service_use: You'll then be able to %{service_name}.
       other_ways_link: "other ways to %{transaction}"
       no_docs_other_ways_message_html: "%{idp_no_docs_requirement}, there are %{other_ways_link}"
     redirect_to_idp_question:
@@ -318,7 +329,7 @@ en:
       message: "You can sign in wherever you see the GOV.UK Verify logo with your %{display_name} identity account username and password."
       continue_to_rp: "You can now %{transaction_name}."
       heading: "%{display_name} has verified your identity"
-      add_security_loa1: Some government services need you to add extra security to your identity account, but you only need to do this once.
+      add_security_loa1: When you access some government services, you'll be asked to provide more evidence, but you only need to do this once.
       extra_security: Government services requiring extra security
     failed_registration:
       title: Unable to verify your identity
@@ -334,7 +345,7 @@ en:
       what_to_do_next: "What to do next"
       problems_verifying_your_identity: Problems verifying your identity
       continue_heading: "Continue to %{transaction_name}"
-      continue_idp_text: "%{idp_name} was unable to verify your identity, but you can still submit your application."
+      continue_idp_text: "%{idp_name} was unable to verify your identity."
       continue_text: "Continue to %{rp_name} to find out how."
       start_again: Find another company to verify you
       other_ways_summary: "View other ways to %{other_ways_description}"
@@ -442,6 +453,23 @@ en:
       example_text: "Example: %{example}"
       attribute_validation_message: Enter a valid %{cycle_three_name}
       null_attribute: I don’t have an %{cycle_three_name}
+    select_proof_of_address:
+      title: Proof of your address
+      sub_heading: Certified companies need to check your address is correct. They do this by checking with your bank or credit card provider.
+      highlight: This is a free service, and the certified company cannot see any of your financial transactions.
+      financial_details:
+        heading: 'Do you have the following:'
+        none_of_these_documents: I don't have any of these documents
+        question:
+          debit_card: Debit card?
+          credit_card: Credit card?
+          bank_account: UK bank account?
+    no_idps_available:
+      title: No IDPS available
+      heading: GOV.UK Verify won’t work for you
+      text: Based on your answers, none of the certified companies can verify you.
+      details_html: You can %{href}; the more accurately you answer the questions, the more likely it is that a certified company can verify you.
+      details_link: change your answers to the questions
   errors:
     transaction_list:
       title: Find the service you were using to start again
@@ -480,3 +508,4 @@ en:
       reason_pre: "This may be because:"
       reason_one: the link you clicked is broken
       reason_two: you entered an incorrect web address
+    no_selection: Please answer all the questions
