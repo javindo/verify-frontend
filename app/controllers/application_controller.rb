@@ -1,5 +1,4 @@
 require 'redirect_with_see_other'
-require 'journeys'
 require 'user_session'
 require 'user_errors'
 
@@ -24,4 +23,12 @@ class ApplicationController < ActionController::Base
   rescue_from Api::SessionTimeoutError, with: :session_timeout
 
   prepend RedirectWithSeeOther
+
+  def set_secure_cookie(name, value)
+    cookies[name] = {
+        value: value,
+        httponly: true,
+        secure: Rails.configuration.x.cookies.secure
+    }
+  end
 end

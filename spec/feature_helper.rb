@@ -30,7 +30,7 @@ end
 
 Capybara.register_driver :selenium do |app|
   require 'selenium/webdriver'
-  Selenium::WebDriver::Firefox::Binary.path = ENV['FIREFOX_PATH'] || Selenium::WebDriver::Firefox::Binary.path
+  Selenium::WebDriver::Firefox::Binary.path = '/Users/stevebutler/code/Firefox/Firefox.app/Contents/MacOS/firefox-bin'
   Capybara::Selenium::Driver.new(app, browser: :firefox)
 end
 
